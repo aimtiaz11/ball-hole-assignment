@@ -6,7 +6,7 @@ A model of a resource allocation problem:
 1. I have two data records: Hole, and Ball
 2. Hole and Ball each have an integer size property
 
-I need a function to assign balls to holes
+I need a function to assign balls to holes.
 
 The function must:
 1. take a collection of balls and a collection of holes
@@ -22,7 +22,7 @@ Assignment criteria:
 ## Running the solution
 
 This solution is developed using Java 8 and Maven to manage dependencies (like JUnit). The idea is to showcase a single function in the `BallAssignmentCalculator.java` which
- tries to solve the above problem.
+ tries to solve the above problem using some functional programming techniques of Java 8.
 
 There is no main method and as such this project does not run as an executable application.
 
