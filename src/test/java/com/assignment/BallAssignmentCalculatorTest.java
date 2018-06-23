@@ -3,15 +3,10 @@ package com.assignment;
 import com.assignment.model.Ball;
 import com.assignment.model.Hole;
 import com.assignment.model.Response;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-//import org.junit.Before;
-//import org.junit.Test;
-//import org.junit.runner.RunWith;
-//import org.junit.runners.JUnit4;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,16 +40,13 @@ public class BallAssignmentCalculatorTest {
     }
 
 
-
     @Test
-    public void test_assignBallsToHoles3(){
+    public void test_assignBallsToHoles3() {
         List<Ball> inputBalls = Arrays.asList(new Ball(0), new Ball(2), new Ball(3));
         List<Hole> inputHoles = Arrays.asList(new Hole(2), new Hole(3));
         Response response = ballAssignmentCalculator.assignBallsToHoles(inputBalls, inputHoles);
         assertEquals("The smallest ball is the unassigned", 0, response.getUnAssignedBalls().get(0).getSize());
     }
-
-
 
 
     @Test
