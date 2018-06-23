@@ -33,7 +33,6 @@ public class BallAssignmentCalculatorTest {
 
     @Test
     public void test_assignBallsToHoles1() {
-
         List<Ball> inputBalls = Arrays.asList(new Ball(0), new Ball(1), new Ball(4));
         List<Hole> inputHoles = Arrays.asList(new Hole(0), new Hole(1), new Hole(2));
 
@@ -42,7 +41,21 @@ public class BallAssignmentCalculatorTest {
         assertEquals("Ball of size 4 should be unassigned", 1, response.getUnAssignedBalls().size());
         assertEquals("Hole of size 2 should be unassigned", 1, response.getUnAssignedHoles().size());
         assertEquals("The remaining two should pair", 2, response.getAssignedBallsAndHoles().size());
+
     }
+
+
+
+    @Test
+    public void test_assignBallsToHoles3(){
+        List<Ball> inputBalls = Arrays.asList(new Ball(0), new Ball(2), new Ball(3));
+        List<Hole> inputHoles = Arrays.asList(new Hole(2), new Hole(3));
+        Response response = ballAssignmentCalculator.assignBallsToHoles(inputBalls, inputHoles);
+        assertEquals("The smallest ball is the unassigned", 0, response.getUnAssignedBalls().get(0).getSize());
+    }
+
+
+
 
     @Test
     public void test_assignBallsToHoles2() {

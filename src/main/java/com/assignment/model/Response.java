@@ -5,15 +5,23 @@ import javafx.util.Pair;
 import java.util.List;
 
 /**
- * Created by alimtiaz on 23/6/18.
+ * Captures the desired output of the function.
  */
-
 public class Response {
 
+    /**
+     * List of holes that have been unused (no ball fits)
+     */
     private List<Hole> unAssignedHoles;
 
+    /**
+     * List of balls that could not be fit into any of the holes.
+     */
     private List<Ball> unAssignedBalls;
 
+    /**
+     * Pair of holes and ball where ball can fit the hole
+     */
     private List<Pair<Ball, Hole>> assignedBallsAndHoles;
 
     public Response(List<Hole> unAssignedHoles, List<Ball> unAssignedBalls, List<Pair<Ball, Hole>> assignedBallsAndHoles) {

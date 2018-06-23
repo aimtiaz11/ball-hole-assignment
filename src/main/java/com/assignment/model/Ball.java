@@ -1,6 +1,12 @@
 package com.assignment.model;
 
+/**
+ * Model of the Ball object
+ */
 public class Ball {
+    /**
+     * Aribrary size attribute
+     */
     private int size;
 
     public Ball(int size) {

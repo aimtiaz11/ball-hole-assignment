@@ -12,6 +12,14 @@ import java.util.stream.Collectors;
 
 public class BallAssignmentCalculator {
 
+    /**
+     * @param ballList - List of balls
+     * @param holeList - List of holes
+     * @return - Returns a {@linkplain Response}  object that encapsulates the following response:
+     * 1. Collection of balls that could not be assigned
+     * 2. A collection of holes that where a ball could not be assigned
+     * 3. A collection of holes and ball pairs
+     */
     public Response assignBallsToHoles(List<Ball> ballList, List<Hole> holeList) {
 
         // Step 1: Sort the holes by size (descending order) so when we iterate over the holes, we are starting with the largest and working towards
@@ -22,8 +30,7 @@ public class BallAssignmentCalculator {
 
         List<Pair<Ball, Hole>> assignedBallsAndHoles = new ArrayList<>();
         List<Hole> unAssignedHoles = new ArrayList<>();
-        List<Ball> unAssignedBalls = new ArrayList<>();
-
+        List<Ball> unAssignedBalls;
 
         List<Ball> usedBalls = new ArrayList<>();
 
@@ -33,20 +40,18 @@ public class BallAssignmentCalculator {
             Ball largestMatchedBall;
             try {
                 largestMatchedBall = ballList.stream()
-                        .filter(ball -> ball.getSize() <= hole.getSize()) // Ball will fit the hole
+                        .filter(ball -> ball.getSize() <= hole.getSize()) // Find the ball that will fit the hole
                         .filter(ball -> usedBalls.isEmpty() || !usedBalls.contains(ball)) // The ball has not been used previously
-                        .max(Comparator.comparing(Ball::getSize))
+                        .max(Comparator.comparing(Ball::getSize)) // Find the largest ball that meet the above 2 filter.
                         .get();
 
-                if (largestMatchedBall != null) {
-                    assignedBallsAndHoles.add(new Pair<>(largestMatchedBall, hole));
-                    usedBalls.add(largestMatchedBall);
-                }
+                assignedBallsAndHoles.add(new Pair<>(largestMatchedBall, hole));
+                usedBalls.add(largestMatchedBall);
 
             } catch (NoSuchElementException ex) {
+                // When the get() above does not yeild any ball. There is nothing to add to this hole.
                 unAssignedHoles.add(hole);
             }
-
         });
 
         // Get the list of unused balls
