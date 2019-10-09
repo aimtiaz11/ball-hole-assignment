@@ -26,4 +26,4 @@ This solution is developed using Java 8 and Maven to manage dependencies (like J
 
 There is no main method and as such this project does not run as an executable application.
 
-The best way to play around with the method is via teh unit tests in `BallAssignmentCalculatorTest.java`
+The best way to play around with the method is via the unit tests in `BallAssignmentCalculatorTest.java`
