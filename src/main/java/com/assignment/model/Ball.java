@@ -5,7 +5,7 @@ package com.assignment.model;
  */
 public class Ball {
     /**
-     * Aribrary size attribute
+     * Arbitrary size attribute
      */
     private int size;
 
